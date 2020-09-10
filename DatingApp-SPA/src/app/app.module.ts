@@ -1,3 +1,5 @@
+import { MemberListResolver } from './_resolvers/member-list.resolver';
+import { MemberDetailResolver } from './_resolvers/member-detail.resolver';
 import { MemberCardComponent } from './members/member-card/member-card.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -8,6 +10,8 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {RouterModule} from '@angular/router';
 import { JwtModule } from '@auth0/angular-jwt';
+// import { NgxGalleryModule } from 'ngx-gallery';
+import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 
 
 import { AppComponent } from './app.component';
@@ -47,6 +51,8 @@ export function tokenGetter(){
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
     BrowserAnimationsModule,
+    // NgxGalleryModule,
+    NgxGalleryModule ,
     RouterModule.forRoot(appRoutes),
     JwtModule.forRoot({
       config: {
@@ -57,7 +63,13 @@ export function tokenGetter(){
       }
     })
   ],
-  providers: [AuthService, ErrorInterceptorProvider,UserService],
+  providers: [
+    AuthService,
+    ErrorInterceptorProvider,
+    UserService,
+    MemberDetailResolver,
+    MemberListResolver
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
