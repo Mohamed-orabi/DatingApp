@@ -3,7 +3,7 @@ import { UserService } from './../../_services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/_model/user';
 import { ActivatedRoute } from '@angular/router';
-import { NgxGalleryImage, NgxGalleryOptions, NgxGalleryAnimation } from 'ngx-gallery';
+import { NgxGalleryImage, NgxGalleryOptions, NgxGalleryAnimation } from '@kolkov/ngx-gallery';
 
 @Component({
   selector: 'app-member-detail',
