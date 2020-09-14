@@ -40,4 +40,8 @@ export class MemberEditComponent implements OnInit {
       this.alertify.error(error);
     });
   }
+
+  updateMemberPhoto(photoUrl){
+    this.user.photoUrl = photoUrl;
+  }
 }
