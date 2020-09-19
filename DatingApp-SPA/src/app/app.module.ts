@@ -1,4 +1,4 @@
-import { FileUploader } from 'ng2-file-upload';
+// import { FileUploadModule } from 'ng2-file-upload';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
@@ -12,7 +12,7 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 import {FileUploadModule} from 'ng2-file-upload';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
-
+import {TimeAgoPipe} from 'time-ago-pipe';
 
 
 import { AppComponent } from './app.component';
@@ -34,7 +34,21 @@ import { MemberCardComponent } from './members/member-card/member-card.component
 import {MemberEditResolver} from './_resolvers/member-edit.resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
+import { Pipe } from '@angular/core';
+import { PipeTransform } from '@angular/core';
 
+// tslint:disable-next-line: use-pipe-transform-interface
+@Pipe({
+  name: 'timeAgo',
+  pure: false
+})
+
+export class TimeAgoExtendsPipePipe extends TimeAgoPipe implements PipeTransform {
+
+  transform(value: string): string {
+    return super.transform(value);
+  }
+}
 
 
 export function tokenGetter(){
@@ -53,7 +67,8 @@ export function tokenGetter(){
     MemberCardComponent,
     MemberDetailComponent,
     MemberEditComponent,
-    PhotoEditorComponent
+    PhotoEditorComponent,
+    TimeAgoExtendsPipePipe
    ],
   imports: [
     BrowserModule,
