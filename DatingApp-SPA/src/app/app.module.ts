@@ -39,6 +39,8 @@ import { PhotoEditorComponent } from './members/photo-editor/photo-editor.compon
 import { Pipe } from '@angular/core';
 import { PipeTransform } from '@angular/core';
 import { ListsResolver } from './_resolvers/lists.resolver';
+import { MessagesResolver } from './_resolvers/messages.resolver';
+import { MemberMessagesComponent } from './members/member-messages/member-messages.component';
 
 // tslint:disable-next-line: use-pipe-transform-interface
 @Pipe({
@@ -71,7 +73,8 @@ export function tokenGetter(){
     MemberDetailComponent,
     MemberEditComponent,
     PhotoEditorComponent,
-    TimeAgoExtendsPipePipe
+    TimeAgoExtendsPipePipe,
+    MemberMessagesComponent
    ],
   imports: [
     BrowserModule,
@@ -106,6 +109,7 @@ export function tokenGetter(){
     MemberEditResolver,
     PreventUnsavedChanges,
     ListsResolver,
+    MessagesResolver,
   ],
   bootstrap: [AppComponent]
 })
